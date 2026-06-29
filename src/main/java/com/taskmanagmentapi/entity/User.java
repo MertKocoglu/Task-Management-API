@@ -1,6 +1,6 @@
-package com.taskmanagmentapi.tma.entity;
+package com.taskmanagmentapi.entity;
 
-import com.taskmanagmentapi.tma.enums.UserRole;
+import com.taskmanagmentapi.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 
