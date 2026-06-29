@@ -38,12 +38,14 @@ public class Task {
 
     private LocalDateTime updatedAt;
 
+    //Bu task 1 kullanıcıya atanabilir ve bir kullanıcı birden fazla task alabilir. Bu nedenle ManyToOne ilişkisi kullanıyoruz. 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "assigned_user_id")
     private User assignedUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id", nullable = false)
+    //Hiçbir task projesiz olamaz. Bu nedenle nullable = false olarak ayarlıyoruz.
     private Project project;
 
     @PrePersist
