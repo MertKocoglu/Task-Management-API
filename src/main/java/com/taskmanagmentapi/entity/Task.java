@@ -17,6 +17,8 @@ import java.time.LocalDateTime;
 @Builder
 public class Task {
 
+    private static final LocalDateTime NOW = LocalDateTime.now();
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -50,8 +52,8 @@ public class Task {
 
     @PrePersist
     public void prePersist() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
+        createdAt = NOW;
+        updatedAt = NOW;
 
         if (status == null) {
             status = TaskStatus.TODO;
@@ -60,6 +62,6 @@ public class Task {
 
     @PreUpdate
     public void preUpdate() {
-        updatedAt = LocalDateTime.now();
+        updatedAt = NOW;
     }
 }

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
-
+    
     List<Task> findByStatus(TaskStatus status);
 
     List<Task> findByPriority(TaskPriority priority);

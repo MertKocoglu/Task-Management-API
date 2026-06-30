@@ -22,7 +22,7 @@ public class UserService {
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new BadRequestException("Email is already in use");
         }
-
+//toUserDto yapabilirsin
         User user = User.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())

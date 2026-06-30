@@ -23,7 +23,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class TaskService {
-
+//Here we implement ProjectService and UserService to use their methods and avoid code duplication. For example, we can use the findProjectById and findUserById methods to check if the project and user exist before creating a task or assigning a task to a user.
+//Solid principles: Single Responsibility Principle (SRP) - Each service class has a single responsibility. TaskService handles task-related operations, UserService handles user-related operations, and ProjectService handles project-related operations. This makes the code easier to maintain and understand.
     private final TaskRepository taskRepository;
     private final UserService userService;
     private final ProjectService projectService;
@@ -106,6 +107,7 @@ public class TaskService {
         return TaskMapper.toResponse(taskRepository.save(task));
     }
 
+    //JPQL @Query kullanarak filtreleme işlemi yapmalıyız.
     public List<TaskResponse> filterTasks(TaskStatus status, TaskPriority priority, Long projectId, Long assignedUserId) {
         if (status != null) {
             return taskRepository.findByStatus(status).stream().map(TaskMapper::toResponse).toList();

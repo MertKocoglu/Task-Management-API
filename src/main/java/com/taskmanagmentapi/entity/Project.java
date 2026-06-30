@@ -26,7 +26,7 @@ public class Project {
     private String description;
 
     private LocalDateTime createdAt;
-
+//Projeyi sildiğinde tüm taskları da silmek istiyoruz. Bu nedenle cascade = CascadeType.ALL ve orphanRemoval = true olarak ayarlıyoruz.
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> tasks = new ArrayList<>();
 
